@@ -5,6 +5,8 @@ rest of the fleet. Kernel Canary evaluates a fictional network p99 latency
 comparison against a release gate and lets an engineer ask what the result means
 and what to investigate next.
 
+Live Demo - https://mute-frog-c886.rajashivaram-0.workers.dev/
+
 ## 30-second demo
 
 1. Click **Load sample rollout**.
