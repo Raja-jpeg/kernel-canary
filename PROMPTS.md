@@ -1,9 +1,72 @@
-# Development prompts
+## Development prompts and test results
 
-## Earlier conversation (paste original prompts here)
+### Debugging repeated model output
 
-The earlier conversation was unavailable during cleanup. Paste the original user
-prompts here in chronological order with credentials and private details redacted.
+```text
+can you see the responses of the model it is given gibberish like repeated words
+```
+
+### Continuing after the model fix
+
+```text
+perfect now it works, now what, please guide with the next steps
+```
+
+### Reviewing the updated model prompt
+
+```text
+I only changed the prompt, can you please check the response and guide with the next steps as well
+```
+
+### Verifying the rollout rule
+
+I shared the following terminal output to confirm the expected results, including `Insufficient data` when the canary measurement was missing.
+
+| Case | Decision | Increase (%) | Limit (ms) | Above limit (ms) |
+| --- | --- | ---: | ---: | ---: |
+| 0 | Pass | 10 | 12 | 0 |
+| 1 | Pass | 20 | 12 | 0 |
+| 2 | Hold | 50 | 9.6 | 2.4 |
+| 3 | Insufficient data | | | |
+
+### Confirming the sample rollout UI changes
+
+```text
+done with the mentioned changes
+```
+
+### Debugging the state type
+
+```text
+Property 'sampleLoaded' does not exist on type 'ChatAgent'.ts(2339)
+any
+```
+
+### Confirming the rollout recall test
+
+```text
+done, I got the expected answer
+```
+
+### Investigating conversation isolation
+
+```text
+opening in incognito did not start afresh, it has old conversation
+```
+
+```text
+two urls end in different random ids in incognito and normal browsing window
+```
+
+```text
+incognito did not show isolation test result conversation
+```
+
+### Requesting cleanup and submission documentation
+
+```text
+can you please prompt to clean up and what the project should have in read me etc for the job application
+```
 
 ## Assignment preparation and cleanup
 
@@ -30,11 +93,6 @@ Write README.md for the hiring reviewer
 4. Explain the engineering decision in a short paragraph. TypeScript evaluates the policy and calculates the numbers. The AI explains the result and suggests follow-up checks. Relate this to safe kernel release engineering.
 5. Include reproducible setup, test, and deploy commands verified against the repo. Explain the Cloudflare login requirement for local Workers AI. Describe the project’s limits, including fictional metrics and anonymous demo sessions.
 6. Link to PROMPTS.md. Credit the Cloudflare Agents starter and preserve its license notices.
-
-Prepare PROMPTS.md
-- Preserve any actual prompts already recorded. If I provide a chat export, use the real user prompts in chronological order and redact credentials or private information.
-- If you cannot access the earlier conversation, create a clearly marked section for me to paste it into. Do not invent or summarize missing prompts as if they were the originals.
-- Include this cleanup prompt in the log.
 
 At the end, tell me what changed, which checks passed, and what still needs testing. Do not deploy or push to GitHub during this cleanup.
 ```
